@@ -2,6 +2,7 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 import 'dart:html';
+import 'lib/mud.dart';
 
 void main() {
   querySelector('#output').text = 'Your Dart app is running.';
@@ -47,34 +48,4 @@ void updateCoordinates(int rel_x, int rel_y) {
   y += rel_y;
 
   querySelector("coordinates").innerHtml = "place : $x, $y";
-}
-
-
-class Environment {
-  String name;
-
-  Environment(this.name);
-
-  Encounter encounter = new Bear();
-
-  String stumbleUpon() {
-    return "${this.name} you stumbles upon something ${this.encounter.whenEncounter()}";
-  }
-}
-
-
-abstract class Encounter {
-  whenEncounter();
-}
-
-class Bear extends Encounter {
-  whenEncounter() {
-    return "You encountered a bear";
-  }
-}
-
-class Ghost extends Encounter {
-  whenEncounter() {
-    return "You encountered a ghost";
-  }
 }
