@@ -9,6 +9,8 @@ void main() {
   querySelector('#enter').onClick.listen(clickedOnEnter);
 }
 
+Environment myEnvironment = new Environment("Vikas");
+
 clickedOnEnter(e) {
   InputElement input = querySelector("#commands");
   input.style.borderColor = "green";
@@ -34,4 +36,26 @@ clickedOnEnter(e) {
 
   var outputHtml = "<div>${output}</div>";
   querySelector("#output").appendHtml(outputHtml);
+
+  var interaction = myEnvironment.stumbleUpon();
+  outputHtml = "<div>${interaction}</div>";
+  querySelector("#output").appendHtml(outputHtml);
+}
+
+void updateCoordinates(int rel_x, int rel_y) {
+  x += rel_x;
+  y += rel_y;
+
+  querySelector("coordinates").innerHtml = "place : $x, $y";
+}
+
+
+class Environment {
+  String name;
+
+  Environment(this.name);
+
+  String stumbleUpon() {
+    return "${this.name} you stumbles upon something";
+  }
 }
