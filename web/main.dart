@@ -55,7 +55,26 @@ class Environment {
 
   Environment(this.name);
 
+  Encounter encounter = new Bear();
+
   String stumbleUpon() {
-    return "${this.name} you stumbles upon something";
+    return "${this.name} you stumbles upon something ${this.encounter.whenEncounter()}";
+  }
+}
+
+
+abstract class Encounter {
+  whenEncounter();
+}
+
+class Bear extends Encounter {
+  whenEncounter() {
+    return "You encountered a bear";
+  }
+}
+
+class Ghost extends Encounter {
+  whenEncounter() {
+    return "You encountered a ghost";
   }
 }
