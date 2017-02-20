@@ -7,9 +7,10 @@ class Environment {
     this.name = name;
   }
 
-  Encounter encounter = new Bear();
+  Encounter encounter = new Encounter(6);
 
   String stumbleUpon() {
+    this.encounter = new Encounter(6);
     var doneDamage = damage;
     var interection = "${this._name} you stumbles upon something ${this.encounter.whenEncounter()}";
     if (doneDamage > 0) {
